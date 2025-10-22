@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <div class="container mx-auto px-50 box-border">
+  <div class="container mx-auto px-30 box-border">
     <div class="form__title">
       <h3>Учетные записи</h3>
       <button>+</button>
