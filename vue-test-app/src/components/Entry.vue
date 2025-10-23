@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import { TrashIcon } from '@heroicons/vue/24/solid';
-// import { EyeIcon } from '@heroicons/vue/24/solid';
-// import { EyeSlashIcon } from '@heroicons/vue/24/solid';
-
-import type {IEntryItem} from "../stores/types";
+import { EyeIcon } from '@heroicons/vue/24/solid';
+import { EyeSlashIcon } from '@heroicons/vue/24/solid';
+import type {IEntryItem, Preline} from "../stores/types";
 import {useAccountStore} from "../stores";
+import('@preline/toggle-password').then(() => {
+  (window as unknown as { HSStaticMethods: Preline['HSStaticMethods'] }).HSStaticMethods.autoInit();
+});
 
 const myStore = useAccountStore();
 const props = defineProps<IEntryItem>();
@@ -60,21 +62,22 @@ const stringifyMark = (array: { text: string }[]): string => {
         />
       </div>
 
-      <div v-if="props.entry.password" class="w-3/13 min-w-3/13">
+      <div v-if="props.entry.password" class="relative w-3/13 min-w-3/13">
         <input type="password"
                name="password"
+               id="hs-toggle-password"
                :placeholder="props.entry.password"
                :value="props.entry.password"
                readonly
                class="border border-gray-300 bg-white text-gray-900 appearance-none block rounded-md py-3 px-4 focus:border-blue-500 focus:outline-none w-full"
         />
-        <!-- <button type="button"
-                entry-toggle-password='{ "target": "#toggle-password" }'
-                class="cursor-pointer"
+        <button type="button"
+                data-hs-toggle-password='{"target": "#hs-toggle-password"}'
+                class="absolute inset-y-0 end-0 flex items-center z-20 px-3 cursor-pointer"
                 aria-label="password toggle" >
-          <EyeSlashIcon class="size-4 password-active:hidden block"/>
-          <EyeIcon class="size-4 password-active:block hidden" />
-        </button> -->
+          <EyeSlashIcon class="size-4 hs-password-active:hidden"/>
+          <EyeIcon class="size-4 hidden hs-password-active:block" />
+        </button>
       </div>
 
       <div class="text-right">

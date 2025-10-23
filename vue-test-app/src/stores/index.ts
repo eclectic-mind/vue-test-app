@@ -3,47 +3,12 @@ import type {IAccountItem} from "./types.ts";
 
 export const useAccountStore = defineStore('Account', {
     state: () => ({
-        entries: [
-            {
-                mark: [
-                    {
-                        text: 'XXXX'
-                    }
-                ],
-                localType: 'local',
-                login: 'jane',
-                password: '86kjfjgkdfgkjfkh'
-            },
-            {
-                mark: [
-                    {
-                        text: 'YYYYYYYYYYYYYYYy'
-                    },
-                    {
-                        text: 'GGG'
-                    },
-                    {
-                        text: 'MMMMMMMMM'
-                    },
-                ],
-                localType: 'ldap',
-                login: 'peter',
-                password: null
-            },
-            {
-                mark: [
-                    {
-                        text: 'LLLLLLLLLL'
-                    }
-                ],
-                localType: 'local',
-                login: 'frank',
-                password: '946785486046748646'
-            }
-        ]
+        entries: [] as IAccountItem[]
     }),
 
-    persist: true,
+    persist: {
+        storage: localStorage
+    },
 
     actions: {
         addItem(item: IAccountItem): void {

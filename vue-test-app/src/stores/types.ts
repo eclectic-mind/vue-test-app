@@ -8,3 +8,9 @@ export interface IAccountItem {
 export interface IEntryItem {
     entry: IAccountItem
 }
+
+export interface Preline {
+    HSStaticMethods: {
+        autoInit: () => void;
+    };
+}

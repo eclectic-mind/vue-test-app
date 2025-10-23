@@ -27,6 +27,7 @@ module.exports = {
             center: false,
             padding: '2rem',
         },
+
     },
     variants: {
         extend: {
