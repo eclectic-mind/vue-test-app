@@ -1,4 +1,5 @@
 import { defineStore } from "pinia";
+import type {IAccountItem} from "./types.ts";
 
 export const useAccountStore = defineStore('Account', {
     state: () => ({
@@ -9,7 +10,7 @@ export const useAccountStore = defineStore('Account', {
                         text: 'XXXX'
                     }
                 ],
-                localType: true,
+                localType: 'local',
                 login: 'jane',
                 password: '86kjfjgkdfgkjfkh'
             },
@@ -25,7 +26,7 @@ export const useAccountStore = defineStore('Account', {
                         text: 'MMMMMMMMM'
                     },
                 ],
-                localType: false,
+                localType: 'ldap',
                 login: 'peter',
                 password: null
             },
@@ -35,7 +36,7 @@ export const useAccountStore = defineStore('Account', {
                         text: 'LLLLLLLLLL'
                     }
                 ],
-                localType: false,
+                localType: 'local',
                 login: 'frank',
                 password: '946785486046748646'
             }
@@ -45,13 +46,11 @@ export const useAccountStore = defineStore('Account', {
     persist: true,
 
     actions: {
-        addItem(item: any): void {
-            console.log('add', item);
+        addItem(item: IAccountItem): void {
             this.entries.push(item);
         },
 
-        removeItem(item: any): void {
-            console.log('remove', item);
+        removeItem(item: IAccountItem): void {
             this.entries.splice(this.entries.indexOf(item), 1);
         },
     }

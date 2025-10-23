@@ -1,6 +1,6 @@
 export interface IAccountItem {
     mark: { text: string }[],
-    localType: boolean,
+    localType: string,
     login: string,
     password: string | null
 }

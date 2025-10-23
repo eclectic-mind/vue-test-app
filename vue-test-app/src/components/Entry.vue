@@ -40,13 +40,11 @@ const stringifyMark = (array: { text: string }[]): string => {
         <select name="localType"
                 class="border border-gray-300 bg-white text-gray-900 block rounded-md py-3 px-4 focus:border-blue-500 focus:outline-none w-full">
           <option value="!props.entry.localType"
-                  :disabled="props.entry.localType"
-                  :selected="!props.entry.localType">
+                  :selected="props.entry.localType === 'ldap'">
             LDAP
           </option>
           <option value="props.entry.localType"
-                  :disabled="!props.entry.localType"
-                  :selected="props.entry.localType">
+                  :selected="props.entry.localType === 'local'">
             Локальная
           </option>
         </select>

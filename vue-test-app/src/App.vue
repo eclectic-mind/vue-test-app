@@ -1,11 +1,9 @@
 <script setup lang="ts">
-// import { storeToRefs } from 'pinia';
 import Entry from './components/Entry.vue';
 import Form from './components/Form.vue';
 import {QuestionMarkCircleIcon} from "@heroicons/vue/24/solid";
 import {useAccountStore} from './stores/';
 import {reactive} from 'vue';
-// import type {IAccountItem} from "./stores/types.ts";
 
 const myStore = useAccountStore();
 
@@ -13,14 +11,7 @@ const state = reactive({
   isShown: false
 });
 
-// const form = useTemplateRef('form');
-
-/* const addEntry = (entry: IAccountItem): void => {
-  myStore.addItem(entry);
-}; */
-
 const openForm = (): void => {
-  console.log('open');
   state.isShown = !state.isShown;
 };
 </script>
