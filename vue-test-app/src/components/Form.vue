@@ -65,6 +65,7 @@ const submit = (): void => {
         <input v-model="form.mark"
                type="text"
                name="mark"
+               :maxlength="50"
                placeholder="Введите метки"
                class="invalid:border-red-500 border border-gray-300 bg-white text-gray-900 appearance-none block rounded-md py-3 px-4 focus:border-blue-500 focus:outline-none w-full"
         />
@@ -74,7 +75,6 @@ const submit = (): void => {
         <select v-model="form.localType"
                 @change="onChange($event)"
                 name="localType"
-                required
                 class="invalid:border-red-500 border border-gray-300 bg-white text-gray-900 block rounded-md py-3 px-4 focus:border-blue-500 focus:outline-none w-full">
           <option value="" selected class="invisible"></option>
           <option value="ldap">
@@ -90,6 +90,7 @@ const submit = (): void => {
         <input v-model="form.login"
                type="text"
                name="login"
+               :maxlength="100"
                placeholder="Введите логин"
                required
                class="invalid:border-red-500 border border-gray-300 bg-white text-gray-900 appearance-none block rounded-md py-3 px-4 focus:border-blue-500 focus:outline-none w-full"
@@ -100,6 +101,7 @@ const submit = (): void => {
         <input v-model="form.password"
                type="text"
                name="password"
+               :maxlength="100"
                placeholder="Введите пароль"
                class="invalid:border-red-500 border border-gray-300 bg-white text-gray-900 appearance-none block rounded-md py-3 px-4 focus:border-blue-500 focus:outline-none w-full"
         />
