@@ -4,22 +4,40 @@ export const useAccountStore = defineStore('Account', {
     state: () => ({
         entries: [
             {
-                mark: ['XXX'],
+                mark: [
+                    {
+                        text: 'XXXX'
+                    }
+                ],
                 localType: true,
                 login: 'jane',
                 password: '86kjfjgkdfgkjfkh'
             },
             {
-                mark: ['XXX', 'YYYYYYYYY', 'IIIIII', 'MMMMMMMMMM'],
+                mark: [
+                    {
+                        text: 'YYYYYYYYYYYYYYYy'
+                    },
+                    {
+                        text: 'GGG'
+                    },
+                    {
+                        text: 'MMMMMMMMM'
+                    },
+                ],
                 localType: false,
                 login: 'peter',
                 password: null
             },
             {
-                mark: ['MMMMMMMMMM'],
+                mark: [
+                    {
+                        text: 'LLLLLLLLLL'
+                    }
+                ],
                 localType: false,
-                login: 'douglas',
-                password: null
+                login: 'frank',
+                password: '946785486046748646'
             }
         ]
     }),

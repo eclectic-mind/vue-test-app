@@ -12,6 +12,16 @@ const props = defineProps<IEntryItem>();
 const removeEntry = (): void => {
     myStore.removeItem(props.entry);
 };
+
+const stringifyMark = (array: { text: string }[]): string => {
+  const result: string[] = [];
+
+  array.forEach((obj: {text: string}) => {
+    result.push(obj.text);
+  });
+
+  return result.join('; ');
+};
 </script>
 
 <template>
@@ -19,8 +29,8 @@ const removeEntry = (): void => {
       <div class="w-3/13 min-w-3/13">
         <input type="text"
                name="mark"
-               :placeholder="props.entry.mark.join('; ')"
-               :value="props.entry.mark.join('; ')"
+               :placeholder="stringifyMark(props.entry.mark)"
+               :value="stringifyMark(props.entry.mark)"
                readonly
                class="border border-gray-300 bg-white text-gray-900 appearance-none block rounded-md py-3 px-4 focus:border-blue-500 focus:outline-none w-full"
         />
