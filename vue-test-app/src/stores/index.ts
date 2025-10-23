@@ -24,6 +24,8 @@ export const useAccountStore = defineStore('Account', {
         ]
     }),
 
+    persist: true,
+
     actions: {
         addItem(item: any): void {
             console.log('add', item);

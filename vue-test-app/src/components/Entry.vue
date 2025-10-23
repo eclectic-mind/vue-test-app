@@ -3,11 +3,11 @@ import { TrashIcon } from '@heroicons/vue/24/solid';
 // import { EyeIcon } from '@heroicons/vue/24/solid';
 // import { EyeSlashIcon } from '@heroicons/vue/24/solid';
 
-import type {IAccountItem} from "../stores/types";
+import type {IEntryItem} from "../stores/types";
 import {useAccountStore} from "../stores";
 
 const myStore = useAccountStore();
-const props = defineProps<IAccountItem>();
+const props = defineProps<IEntryItem>();
 
 const removeEntry = (): void => {
     myStore.removeItem(props.entry);

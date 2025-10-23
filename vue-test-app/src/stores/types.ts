@@ -1,8 +1,10 @@
 export interface IAccountItem {
-    entry: {
-        mark: string[],
-        localType: boolean,
-        login: string,
-        password: string | null
-    }
+    mark: string[],
+    localType: boolean,
+    login: string,
+    password: string | null
+}
+
+export interface IEntryItem {
+    entry: IAccountItem
 }
