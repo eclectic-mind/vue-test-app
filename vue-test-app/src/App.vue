@@ -1,30 +1,28 @@
 <script setup lang="ts">
 // import { storeToRefs } from 'pinia';
 import Entry from './components/Entry.vue';
+import Form from './components/Form.vue';
 import {QuestionMarkCircleIcon} from "@heroicons/vue/24/solid";
-// import {useAccountStore} from './stores/';
+import {useAccountStore} from './stores/';
+import {reactive} from 'vue';
 // import type {IAccountItem} from "./stores/types.ts";
 
-// const myStore = useAccountStore();
-// myStore.init();
+const myStore = useAccountStore();
 
-// const { entries } = storeToRefs(myStore);
+const state = reactive({
+  isShown: false
+});
 
-const entries = [
-  {
-    mark: 'XXX',
-    localType: true,
-    login: 'jane',
-    password: '86kjfjgkdfgkjfkh'
-  },
-  {
-    mark: 'XXX; YYYYYYYYY; IIIIII; MMMMMMMMMM',
-    localType: false,
-    login: 'peter',
-    password: null
-  }
-];
+// const form = useTemplateRef('form');
 
+/* const addEntry = (entry: IAccountItem): void => {
+  myStore.addItem(entry);
+}; */
+
+const openForm = (): void => {
+  console.log('open');
+  state.isShown = !state.isShown;
+};
 </script>
 
 <template>
@@ -33,7 +31,8 @@ const entries = [
       <h3>Учетные записи</h3>
 
       <button type="button"
-              class="cursor-pointer flex items-center py-3 px-5 border border-gray-300 bg-white hover:bg-blue-400 focus:ring-4 focus:ring-blue-400 rounded-md text-center text-lg">
+              class="cursor-pointer flex items-center py-3 px-5 border border-gray-300 bg-white hover:bg-blue-100 focus:ring-4 focus:ring-blue-100 rounded-md text-center text-lg"
+              @click="openForm()">
         +
       </button>
     </div>
@@ -55,10 +54,12 @@ const entries = [
       </div>
 
       <div class="form__body">
-        <Entry v-for="(entry, index) in entries"
+        <Entry v-for="(entry, index) in myStore.entries"
                :entry="entry"
                :key="index"
         />
+
+        <Form ref="form" v-if="state.isShown" />
       </div>
     </div>
   </div>

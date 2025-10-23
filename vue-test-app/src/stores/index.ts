@@ -1,19 +1,38 @@
 import { defineStore } from "pinia";
-// import { ref } from 'vue';
 
 export const useAccountStore = defineStore('Account', {
     state: () => ({
-        count: 0,
-        pages: 0,
-        prev: null,
-        next: null,
-        currentPage: 1,
-        items: []
+        entries: [
+            {
+                mark: ['XXX'],
+                localType: true,
+                login: 'jane',
+                password: '86kjfjgkdfgkjfkh'
+            },
+            {
+                mark: ['XXX', 'YYYYYYYYY', 'IIIIII', 'MMMMMMMMMM'],
+                localType: false,
+                login: 'peter',
+                password: null
+            },
+            {
+                mark: ['MMMMMMMMMM'],
+                localType: false,
+                login: 'douglas',
+                password: null
+            }
+        ]
     }),
 
     actions: {
-        init() {
-            // this.fetchData();
+        addItem(item: any): void {
+            console.log('add', item);
+            this.entries.push(item);
         },
-    },
+
+        removeItem(item: any): void {
+            console.log('remove', item);
+            this.entries.splice(this.entries.indexOf(item), 1);
+        },
+    }
 });
