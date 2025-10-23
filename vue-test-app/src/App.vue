@@ -1,12 +1,30 @@
 <script setup lang="ts">
+// import { storeToRefs } from 'pinia';
 import Entry from './components/Entry.vue';
 import {QuestionMarkCircleIcon} from "@heroicons/vue/24/solid";
+// import {useAccountStore} from './stores/';
+// import type {IAccountItem} from "./stores/types.ts";
 
-// import type {IAccountItem} from "~/stores/types";
-import {useAccountStore} from './stores/';
+// const myStore = useAccountStore();
+// myStore.init();
 
-const myStore = useAccountStore();
-myStore.init();
+// const { entries } = storeToRefs(myStore);
+
+const entries = [
+  {
+    mark: 'XXX',
+    localType: true,
+    login: 'jane',
+    password: '86kjfjgkdfgkjfkh'
+  },
+  {
+    mark: 'XXX; YYYYYYYYY; IIIIII; MMMMMMMMMM',
+    localType: false,
+    login: 'peter',
+    password: null
+  }
+];
+
 </script>
 
 <template>
@@ -37,7 +55,10 @@ myStore.init();
       </div>
 
       <div class="form__body">
-        <Entry />
+        <Entry v-for="(entry, index) in entries"
+               :entry="entry"
+               :key="index"
+        />
       </div>
     </div>
   </div>
