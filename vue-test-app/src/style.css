@@ -6,3 +6,21 @@
         @apply font-bold;
     }
 }
+
+.icon-closed {
+    display: block;
+}
+
+.icon-opened {
+    display: none;
+}
+
+.btn.active {
+    .icon-closed {
+        display: none;
+    }
+
+    .icon-opened {
+        display: block;
+    }
+}

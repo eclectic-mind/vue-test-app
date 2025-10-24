@@ -73,10 +73,10 @@ const stringifyMark = (array: { text: string }[]): string => {
         />
         <button type="button"
                 data-hs-toggle-password='{"target": "#hs-toggle-password"}'
-                class="absolute inset-y-0 end-0 flex items-center z-20 px-3 cursor-pointer"
+                class="btn absolute inset-y-0 end-0 flex items-center z-20 px-3 cursor-pointer"
                 aria-label="password toggle" >
-          <EyeSlashIcon class="size-4 hs-password-active:hidden"/>
-          <EyeIcon class="size-4 hidden hs-password-active:block" />
+          <EyeSlashIcon class="icon-closed size-4 hs-password-active:hidden"/>
+          <EyeIcon class="icon-opened size-4 hidden hs-password-active:block" />
         </button>
       </div>
 
