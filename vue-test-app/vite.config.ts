@@ -1,9 +1,28 @@
+// vite.config.ts
 import { defineConfig } from 'vite'
-import tailwindcss from '@tailwindcss/vite';
 import vue from '@vitejs/plugin-vue'
+import tailwindcss from '@tailwindcss/vite'
+import { resolve, } from "path"
 
-// https://vite.dev/config/
 export default defineConfig({
-  plugins: [vue(), tailwindcss()],
-  base: '/vue-test-app/'
+    // Базовый путь для деплоя
+    base: '/',
+
+    resolve: {
+        alias: {
+            "@": resolve(__dirname, "src")
+        }
+    },
+
+    plugins: [
+        // Плагин для поддержки Vue 3
+        vue(),
+        tailwindcss()
+    ],
+
+    // Настройка сборки
+    build: {
+        outDir: 'dist', // Папка для сборки
+        sourcemap: true, // Генерация sourcemaps
+    },
 })
